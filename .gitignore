@@ -34,3 +34,4 @@ corehost-trace*.txt
 
 # Installer output
 installer/
+build/
