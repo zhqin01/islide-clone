@@ -1,0 +1,40 @@
+{
+    "export": {
+        "default_format": "PNG",
+        "default_dpi": 150,
+        "default_width": null,
+        "default_height": null
+    },
+    "compress": {
+        "default_level": "normal",
+        "image_max_dpi": 150
+    },
+    "font": {
+        "default_title_font": "Microsoft YaHei",
+        "default_body_font": "Microsoft YaHei",
+        "title_size_threshold": 24
+    },
+    "paragraph": {
+        "default_line_spacing": 1.2,
+        "default_space_before": 0,
+        "default_space_after": 6
+    },
+    "alignment": {
+        "default_spacing": 10
+    },
+    "layout": {
+        "matrix_default_columns": 3,
+        "matrix_default_h_gap": 20,
+        "matrix_default_v_gap": 20,
+        "circular_default_radius": 200,
+        "circular_default_start_angle": 0
+    },
+    "watermark": {
+        "default_text": "Confidential",
+        "default_opacity": 30,
+        "default_rotation": -45
+    },
+    "tween": {
+        "default_steps": 5
+    }
+}
