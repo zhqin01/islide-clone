@@ -1,0 +1,30 @@
+# Build output
+bin/
+obj/
+dist/
+publish/
+*.exe
+*.dll
+*.pdb
+*.comhost.dll
+
+# IDE
+.vs/
+.vscode/
+*.suo
+*.user
+
+# OS
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Temp
+*.tmp
+*.output
+*.log
+
+# Python
+__pycache__/
+*.pyc
+.venv/
