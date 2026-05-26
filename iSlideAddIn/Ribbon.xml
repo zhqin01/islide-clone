@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<customUI xmlns="http://schemas.microsoft.com/office/2009/07/customui">
+  <ribbon>
+    <tabs>
+      <tab id="iSlideTab" label="iSlide" insertAfterMso="TabHome">
+        <group id="grpFont" label="Font">
+          <comboBox id="cmbTitleFont" label="Title Font:" getText="OnGetTitleFont" onChange="OnTitleFontChanged" sizeString="Microsoft YaHei"/>
+          <comboBox id="cmbBodyFont" label="Body Font:" getText="OnGetBodyFont" onChange="OnBodyFontChanged" sizeString="Microsoft YaHei"/>
+          <button id="btnFontAll" label="Apply to All" size="large" onAction="OnFontAll" imageMso="Bold"/>
+          <button id="btnFontSel" label="Apply to Selection" onAction="OnFontSel" imageMso="Italic"/>
+        </group>
+        <group id="grpParagraph" label="Paragraph">
+          <editBox id="editLineSpacing" label="Line Spacing:" getText="OnGetLineSpacing" onChange="OnLineSpacingChanged" sizeString="1.5"/>
+          <editBox id="editSpaceBefore" label="Before (pt):" getText="OnGetSpaceBefore" onChange="OnSpaceBeforeChanged" sizeString="0"/>
+          <editBox id="editSpaceAfter" label="After (pt):" getText="OnGetSpaceAfter" onChange="OnSpaceAfterChanged" sizeString="6"/>
+          <button id="btnParaAll" label="Apply to All" size="large" onAction="OnParaAll" imageMso="LineSpacing"/>
+          <button id="btnParaSel" label="Apply to Selection" onAction="OnParaSel" imageMso="ParagraphDialog"/>
+        </group>
+        <group id="grpAlignment" label="Alignment">
+          <button id="btnAlignL" label="L" onAction="OnAlignLeft" imageMso="AlignLeft"/>
+          <button id="btnAlignC" label="C" onAction="OnAlignCenter" imageMso="AlignCenter"/>
+          <button id="btnAlignR" label="R" onAction="OnAlignRight" imageMso="AlignRight"/>
+          <separator id="sep1"/>
+          <button id="btnAlignT" label="T" onAction="OnAlignTop" imageMso="AlignTop"/>
+          <button id="btnAlignM" label="M" onAction="OnAlignMiddle" imageMso="AlignMiddle"/>
+          <button id="btnAlignB" label="B" onAction="OnAlignBottom" imageMso="AlignBottom"/>
+        </group>
+        <group id="grpDistribution" label="Distribution">
+          <button id="btnDistH" label="H-Distribute" size="large" onAction="OnDistH" imageMso="DistributeHorizontally"/>
+          <button id="btnDistV" label="V-Distribute" size="large" onAction="OnDistV" imageMso="DistributeVertically"/>
+        </group>
+        <group id="grpSize" label="Size">
+          <button id="btnSizeW" label="Same W" onAction="OnSameWidth" imageMso="ShapeWidth"/>
+          <button id="btnSizeH" label="Same H" onAction="OnSameHeight" imageMso="ShapeHeight"/>
+          <button id="btnSizeB" label="Same Both" onAction="OnSameBoth" imageMso="Group"/>
+        </group>
+        <group id="grpLayout" label="Layout">
+          <button id="btnMatrix" label="Matrix Layout" size="large" onAction="OnMatrixLayout" imageMso="ViewGridLines"/>
+          <button id="btnCircular" label="Circular Layout" size="large" onAction="OnCircularLayout" imageMso="O"/>
+        </group>
+        <group id="grpColor" label="Color">
+          <button id="btnExtractColors" label="Extract Colors" onAction="OnExtractColors" imageMso="ColorPicker"/>
+          <menu id="mnuColorScheme" label="Apply Scheme" imageMso="ColorPalette">
+            <button id="btnSchemeBlue" label="Material Blue" onAction="OnSchemeBlue"/>
+            <button id="btnSchemeGreen" label="Material Green" onAction="OnSchemeGreen"/>
+            <button id="btnSchemeOrange" label="Material Orange" onAction="OnSchemeOrange"/>
+            <button id="btnSchemeCorporate" label="Corporate Blue" onAction="OnSchemeCorporate"/>
+            <button id="btnSchemeGray" label="Corporate Gray" onAction="OnSchemeGray"/>
+            <button id="btnSchemeRed" label="Warm Red" onAction="OnSchemeRed"/>
+          </menu>
+        </group>
+        <group id="grpEdit" label="Edit">
+          <button id="btnPastePlace" label="Paste in Place" size="large" onAction="OnPastePlace" imageMso="PasteSpecialDialog"/>
+          <button id="btnSwap" label="Swap Positions" onAction="OnSwap" imageMso="SwapPosition"/>
+        </group>
+        <group id="grpProtect" label="Protect">
+          <button id="btnAddWatermark" label="Add Watermark" size="large" onAction="OnAddWatermark" imageMso="Watermark"/>
+          <button id="btnRemoveWatermark" label="Remove Watermarks" onAction="OnRemoveWatermark" imageMso="Delete"/>
+          <button id="btnProtect" label="Convert to Images" onAction="OnProtect" imageMso="Lock"/>
+        </group>
+        <group id="grpSlides" label="Slides">
+          <button id="btnSlideMgr" label="Slide Manager" size="large" onAction="OnSlideMgr" imageMso="SlideShowInSlideShow"/>
+        </group>
+        <group id="grpTween" label="Tween">
+          <editBox id="editTweenSteps" label="Steps:" getText="OnGetTweenSteps" onChange="OnTweenStepsChanged" sizeString="5"/>
+          <button id="btnTween" label="Generate Tween" size="large" onAction="OnTween" imageMso="AnimationTransitionGallery"/>
+        </group>
+        <group id="grpExport" label="Export">
+          <button id="btnExportImages" label="Export Images" size="large" onAction="OnExportImages" imageMso="FileSaveAsPicture"/>
+          <button id="btnExportLongImg" label="Long Image" onAction="OnExportLongImg" imageMso="CreatePhotoAlbum"/>
+          <button id="btnCompress" label="Compress PPT" size="large" onAction="OnCompress" imageMso="CompressPictures"/>
+        </group>
+      </tab>
+    </tabs>
+  </ribbon>
+</customUI>
