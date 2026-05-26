@@ -5,7 +5,7 @@ namespace iSlideAddIn;
 // IDTExtensibility2 — dual interface, DISPID-annotated
 [ComVisible(true)]
 [Guid("B65AD801-ABAF-11D0-BB8A-00A0C90F2744")]
-[InterfaceType(ComInterfaceType.InterfaceIsDual)]
+[InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
 public interface IDTExtensibility2
 {
     [DispId(1)]
@@ -52,7 +52,7 @@ public interface IRibbonControl
 }
 
 [ComVisible(true)]
-[ClassInterface(ClassInterfaceType.None)]
+[ClassInterface(ClassInterfaceType.AutoDual)]
 [Guid("F1A2B3C4-D5E6-7890-ABCD-EF0123456789")]
 [ProgId("iSlideAddIn.Connect")]
 public class AddInModule : IDTExtensibility2, IRibbonExtensibility
