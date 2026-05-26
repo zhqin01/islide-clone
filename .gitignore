@@ -28,3 +28,9 @@ Desktop.ini
 __pycache__/
 *.pyc
 .venv/
+
+# .NET diagnostic logs
+corehost-trace*.txt
+
+# Installer output
+installer/
