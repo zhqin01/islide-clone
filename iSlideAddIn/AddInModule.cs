@@ -2,17 +2,17 @@ using System.Runtime.InteropServices;
 
 namespace iSlideAddIn;
 
-// IDTExtensibility2 — dual interface, DISPID-annotated
+// IDTExtensibility2 — IUnknown-based to avoid runtime typelib export during COM activation.
 [ComVisible(true)]
 [Guid("B65AD801-ABAF-11D0-BB8A-00A0C90F2744")]
-[InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
+[InterfaceType(ComInterfaceType.InterfaceIsIDispatch)]
 public interface IDTExtensibility2
 {
     [DispId(1)]
-    void OnConnection([MarshalAs(UnmanagedType.IDispatch)] object Application, ext_ConnectMode ConnectMode,
+    void OnConnection([MarshalAs(UnmanagedType.IDispatch)] object Application, int ConnectMode,
                       [MarshalAs(UnmanagedType.IDispatch)] object AddInInst, ref Array custom);
     [DispId(2)]
-    void OnDisconnection(ext_DisconnectMode RemoveMode, ref Array custom);
+    void OnDisconnection(int RemoveMode, ref Array custom);
     [DispId(3)]
     void OnAddInsUpdate(ref Array custom);
     [DispId(4)]
@@ -38,7 +38,7 @@ public interface IRibbonExtensibility
 }
 
 // IRibbonControl — IDispatch-based
-[ComVisible(true)]
+[ComVisible(false)]
 [Guid("000C0398-0000-0000-C000-000000000046")]
 [InterfaceType(ComInterfaceType.InterfaceIsIDispatch)]
 public interface IRibbonControl
@@ -52,22 +52,58 @@ public interface IRibbonControl
 }
 
 [ComVisible(true)]
-[ClassInterface(ClassInterfaceType.AutoDual)]
+[ClassInterface(ClassInterfaceType.None)]
 [Guid("F1A2B3C4-D5E6-7890-ABCD-EF0123456789")]
 [ProgId("iSlideAddIn.Connect")]
 public class AddInModule : IDTExtensibility2, IRibbonExtensibility
 {
     public static dynamic? PowerPointApp { get; private set; }
 
-    public void OnConnection(object Application, ext_ConnectMode ConnectMode, object AddInInst, ref Array custom)
-        => PowerPointApp = Application;
-    public void OnDisconnection(ext_DisconnectMode RemoveMode, ref Array custom)
-        => PowerPointApp = null;
+    static AddInModule()
+    {
+        AppDomain.CurrentDomain.UnhandledException += (_, e) => Log("UnhandledException: " + e.ExceptionObject);
+        Log("Static init");
+    }
+
+    public AddInModule() => Log("Constructed");
+
+    public void OnConnection(object Application, int ConnectMode, object AddInInst, ref Array custom)
+    {
+        try
+        {
+            Log("OnConnection: " + ConnectMode);
+            PowerPointApp = Application;
+        }
+        catch (Exception ex)
+        {
+            Log("OnConnection failed: " + ex);
+            throw;
+        }
+    }
+
+    public void OnDisconnection(int RemoveMode, ref Array custom)
+    {
+        Log("OnDisconnection: " + RemoveMode);
+        PowerPointApp = null;
+    }
+
     public void OnAddInsUpdate(ref Array custom) { }
     public void OnStartupComplete(ref Array custom) { }
-    public void OnBeginShutdown(ref Array custom) { }
+    public void OnBeginShutdown(ref Array custom) => Log("OnBeginShutdown");
 
-    public string GetCustomUI(string RibbonID) => RibbonManager.GetRibbonXml();
+    public string GetCustomUI(string RibbonID)
+    {
+        try
+        {
+            Log("GetCustomUI: " + RibbonID);
+            return RibbonManager.GetRibbonXml();
+        }
+        catch (Exception ex)
+        {
+            Log("GetCustomUI failed: " + ex);
+            return "";
+        }
+    }
 
     public void OnFontAll(object _) => FontManager.ApplyToAll();
     public void OnFontSel(object _) => FontManager.ApplyToSelection();
@@ -115,4 +151,20 @@ public class AddInModule : IDTExtensibility2, IRibbonExtensibility
     public void OnExportImages(object _) => ImageExportManager.ShowExportDialog();
     public void OnExportLongImg(object _) => ImageExportManager.ShowLongImageDialog();
     public void OnCompress(object _) => CompressManager.ShowDialog();
+
+    private static void Log(string message)
+    {
+        try
+        {
+            var path = Path.Combine(
+                Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
+                "iSlideClone",
+                "addin.log");
+            Directory.CreateDirectory(Path.GetDirectoryName(path)!);
+            File.AppendAllText(path, $"{DateTime.Now:yyyy-MM-dd HH:mm:ss.fff} {message}{Environment.NewLine}");
+        }
+        catch
+        {
+        }
+    }
 }
