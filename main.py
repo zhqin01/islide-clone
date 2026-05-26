@@ -1,0 +1,16 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+"""iSlide Clone — Offline PowerPoint Tools
+Replicates iSlide plugin features that work without internet.
+"""
+
+import sys
+import os
+
+# Ensure project root is on path
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+
+from src.app import run
+
+if __name__ == "__main__":
+    run()
