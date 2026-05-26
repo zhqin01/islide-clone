@@ -1,0 +1,16 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_CLASSES_ROOT\CLSID\{F1A2B3C4-D5E6-7890-ABCD-EF0123456789}]
+@="iSlideAddIn.Connect"
+
+[HKEY_CLASSES_ROOT\CLSID\{F1A2B3C4-D5E6-7890-ABCD-EF0123456789}\InprocServer32]
+@="C:\\Users\\Administrator\\islide-clone\\iSlideAddIn\\bin\\Release\\net8.0-windows\\win-x64\\iSlideAddIn.comhost.dll"
+"ThreadingModel"="Both"
+
+[HKEY_CLASSES_ROOT\CLSID\{F1A2B3C4-D5E6-7890-ABCD-EF0123456789}\ProgId]
+@="iSlideAddIn.Connect"
+
+[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Office\PowerPoint\AddIns\iSlideAddIn.Connect]
+"FriendlyName"="iSlide Clone"
+"Description"="iSlide Clone - Offline PowerPoint Tools"
+"LoadBehavior"=dword:00000003
