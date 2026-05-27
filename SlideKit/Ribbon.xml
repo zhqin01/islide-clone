@@ -2,7 +2,7 @@
 <customUI xmlns="http://schemas.microsoft.com/office/2009/07/customui">
   <ribbon>
     <tabs>
-      <tab id="iSlideTab" label="iSlide" insertAfterMso="TabHome">
+      <tab id="SlideKitTab" label="SlideKit" insertAfterMso="TabHome">
         <group id="grpFont" label="Font">
           <comboBox id="cmbTitleFont" label="Title Font:" getText="OnGetTitleFont" onChange="OnTitleFontChanged" sizeString="Microsoft YaHei"/>
           <comboBox id="cmbBodyFont" label="Body Font:" getText="OnGetBodyFont" onChange="OnBodyFontChanged" sizeString="Microsoft YaHei"/>

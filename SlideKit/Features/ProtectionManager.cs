@@ -1,0 +1,6 @@
+namespace SlideKit;
+public static class ProtectionManager
+{
+    public static void ConvertToImages() { var a = AddInModule.PowerPointApp; if (a?.ActivePresentation == null) return; if (System.Windows.Forms.MessageBox.Show("Replace all slides with images?\nCannot undo.\n\nContinue?", "iSlide", System.Windows.Forms.MessageBoxButtons.YesNo, System.Windows.Forms.MessageBoxIcon.Warning) != System.Windows.Forms.DialogResult.Yes) return; try { dynamic pres = a.ActivePresentation; string tmp = Path.Combine(Path.GetTempPath(), "sk_p"); Directory.CreateDirectory(tmp); float pw = pres.PageSetup.SlideWidth, ph = pres.PageSetup.SlideHeight; for (int i = 1; i <= pres.Slides.Count; i++) { string ip = Path.Combine(tmp, $"s_{i}.png"); pres.Slides[i].Export(ip, "PNG", (int)(pw * 2), (int)(ph * 2)); var td = new List<dynamic>(); foreach (dynamic s in pres.Slides[i].Shapes) td.Add(s); foreach (var s in td) s.Delete(); pres.Slides[i].Shapes.AddPicture(ip, 0, -1, 0, 0, pw, ph); File.Delete(ip); } Directory.Delete(tmp); M($"Converted {pres.Slides.Count} slides."); } catch (Exception ex) { System.Windows.Forms.MessageBox.Show($"Error: {ex.Message}", "iSlide"); } }
+    static void M(string m) => System.Windows.Forms.MessageBox.Show(m, "iSlide", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Information);
+}

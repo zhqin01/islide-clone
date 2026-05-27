@@ -1,5 +1,5 @@
-using iSlideAddIn.Dialogs;
-namespace iSlideAddIn;
+using SlideKit.Dialogs;
+namespace SlideKit;
 public static class SlideManager
 {
     public static void ShowDialog() { if (AddInModule.PowerPointApp?.ActivePresentation == null) return; using var d = new SlideSorterDialog(); d.ShowDialog(); }

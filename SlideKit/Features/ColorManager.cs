@@ -1,4 +1,4 @@
-namespace iSlideAddIn;
+namespace SlideKit;
 public static class ColorManager
 {
     static readonly Dictionary<string, string[]> S = new() { ["Material Blue"] = new[]{"1976D2","2196F3","64B5F6","BBDEFB","FFFFFF"},["Material Green"]=new[]{"388E3C","4CAF50","81C784","C8E6C9","FFFFFF"},["Material Orange"]=new[]{"F57C00","FF9800","FFB74D","FFE0B2","FFFFFF"},["Corporate Blue"]=new[]{"1A237E","283593","3949AB","5C6BC0","9FA8DA"},["Corporate Gray"]=new[]{"212121","424242","616161","9E9E9E","E0E0E0"},["Warm Red"]=new[]{"B71C1C","D32F2F","E53935","EF9A9A","FFEBEE"}};

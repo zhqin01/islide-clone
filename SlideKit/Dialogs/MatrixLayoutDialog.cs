@@ -1,5 +1,5 @@
 using System.Windows.Forms;
-namespace iSlideAddIn.Dialogs;
+namespace SlideKit.Dialogs;
 public class MatrixLayoutDialog : Form
 {
     public int Columns => (int)_c.Value;

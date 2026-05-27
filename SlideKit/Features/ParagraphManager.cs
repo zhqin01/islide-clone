@@ -1,4 +1,4 @@
-namespace iSlideAddIn;
+namespace SlideKit;
 public static class ParagraphManager
 {
     public static string LineSpacingText { get; set; } = "1.2";

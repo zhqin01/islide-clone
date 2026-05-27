@@ -1,5 +1,5 @@
 using System.Windows.Forms;
-namespace iSlideAddIn.Dialogs;
+namespace SlideKit.Dialogs;
 public class SlideSorterDialog : Form
 {
     private readonly ListBox _lb;

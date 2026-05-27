@@ -1,5 +1,5 @@
-using iSlideAddIn.Dialogs;
-namespace iSlideAddIn;
+using SlideKit.Dialogs;
+namespace SlideKit;
 public static class LayoutManager
 {
     public static void MatrixLayout() { var a = AddInModule.PowerPointApp; if (a?.ActivePresentation == null) return; try { var sel = a.ActiveWindow.Selection; if (sel.Type != 2 || sel.ShapeRange.Count == 0) { W("Select 1+ shapes."); return; } using var d = new MatrixLayoutDialog(); if (d.ShowDialog() != System.Windows.Forms.DialogResult.OK) return; dynamic sr = sel.ShapeRange; int n = sr.Count, cols = d.Columns; float hG = d.HorizontalGap, vG = d.VerticalGap, mw = 0, mh = 0; for (int i = 1; i <= n; i++) { mw = Math.Max(mw, sr[i].Width); mh = Math.Max(mh, sr[i].Height); } float sl = sr[1].Left, st = sr[1].Top; for (int i = 1; i <= n; i++) { int c = (i - 1) % cols, r = (i - 1) / cols; sr[i].Left = sl + c * (mw + hG); sr[i].Top = st + r * (mh + vG); } } catch { } }

@@ -1,5 +1,5 @@
 using System.Windows.Forms;
-namespace iSlideAddIn.Dialogs;
+namespace SlideKit.Dialogs;
 public class ExportDialog : Form
 {
     public string OutputPath => _txt.Text;

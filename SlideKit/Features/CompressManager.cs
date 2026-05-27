@@ -1,5 +1,5 @@
-using iSlideAddIn.Dialogs;
-namespace iSlideAddIn;
+using SlideKit.Dialogs;
+namespace SlideKit;
 public static class CompressManager
 {
     public static void ShowDialog() { if (AddInModule.PowerPointApp?.ActivePresentation == null) return; using var d = new CompressDialog(); d.ShowDialog(); }

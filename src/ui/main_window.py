@@ -26,7 +26,7 @@ class MainWindow(QMainWindow):
         self._controller = controller
         self._slide_names: List[str] = []
 
-        self.setWindowTitle("iSlide Clone")
+        self.setWindowTitle("SlideKit")
         self.setMinimumSize(1100, 700)
         self.resize(1200, 800)
 
@@ -168,7 +168,7 @@ class MainWindow(QMainWindow):
         right = QWidget()
         right_layout = QVBoxLayout(right)
         self._info_label = QLabel(
-            "<h3>Welcome to iSlide Clone</h3>"
+            "<h3>Welcome to SlideKit</h3>"
             "<p>Open a PPTX file or connect to a running PowerPoint instance to get started.</p>"
             "<p><b>Home Tab:</b> Open files or connect to PowerPoint<br>"
             "<b>Design Tab:</b> Fonts, paragraphs, alignment, layout<br>"
@@ -197,7 +197,7 @@ class MainWindow(QMainWindow):
         sb.addWidget(self._status_file)
         sb.addWidget(QLabel("  |  "))
         sb.addWidget(self._status_slides)
-        sb.addPermanentWidget(QLabel("iSlide Clone v1.0"))
+        sb.addPermanentWidget(QLabel("SlideKit v1.0"))
         self.setStatusBar(sb)
 
     # ── menu ──────────────────────────────────────────────────

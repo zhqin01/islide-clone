@@ -1,0 +1,34 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(rm -rf *)",
+      "Bash(rm -f *)",
+      "Bash(mv *)",
+      "Bash(mkdir *)",
+      "Bash(dotnet *)",
+      "Bash(winget *)",
+      "Bash(gh *)",
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(git push *)",
+      "Bash(git remote *)",
+      "Bash(git config *)",
+      "Bash(git init *)",
+      "Bash(powershell *)",
+      "Bash(sed *)",
+      "Bash(pip *)",
+      "Bash(cd *)",
+      "Bash(ls *)",
+      "Bash(find *)",
+      "Bash(grep *)",
+      "Bash(curl *)",
+      "Bash(python *)",
+      "Bash(cat *)",
+      "Bash(for *)",
+      "Bash(echo *)",
+      "Bash(sudo *)",
+      "Bash(export *)",
+      "Bash(cp *)"
+    ]
+  }
+}

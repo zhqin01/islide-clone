@@ -1,5 +1,5 @@
 using System.Windows.Forms;
-namespace iSlideAddIn.Dialogs;
+namespace SlideKit.Dialogs;
 public class WatermarkDialog : Form
 {
     public string WatermarkText => _txt.Text;

@@ -30,9 +30,6 @@ a = Analysis(
         'pptx',
         'pptx.package',
         'pptx.parts.image',
-        'pptx.opc.constants',
-        'pptx.opc.part',
-        'pptx.opc.package',
         # Image processing
         'PIL',
         'PIL.Image',
@@ -72,7 +69,7 @@ exe = EXE(
     a.binaries,
     a.datas,
     [],
-    name='iSlideClone',
+    name='SlideKit',
     debug=False,
     bootloader_ignore_signals=False,
     strip=False,

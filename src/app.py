@@ -7,24 +7,22 @@ from PyQt6.QtCore import Qt
 from PyQt6.QtGui import QFont
 from PyQt6.QtWidgets import QApplication
 
+from src import bundle_dir
 from src.controller.app_controller import AppController
 from src.ui.main_window import MainWindow
 
 
 def run():
     app = QApplication(sys.argv)
-    app.setApplicationName("iSlide Clone")
-    app.setOrganizationName("iSlideClone")
+    app.setApplicationName("SlideKit")
+    app.setOrganizationName("SlideKit")
 
     # Default font
     font = QFont("Microsoft YaHei", 9)
     app.setFont(font)
 
     # Load stylesheet
-    qss_path = os.path.join(
-        os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
-        "resources", "styles", "theme.qss"
-    )
+    qss_path = os.path.join(bundle_dir(), "resources", "styles", "theme.qss")
     try:
         with open(qss_path, 'r', encoding='utf-8') as f:
             app.setStyleSheet(f.read())

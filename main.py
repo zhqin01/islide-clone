@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-"""iSlide Clone — Offline PowerPoint Tools
+"""SlideKit — Offline PowerPoint Tools
 Replicates iSlide plugin features that work without internet.
 """
 

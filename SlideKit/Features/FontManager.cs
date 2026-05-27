@@ -1,4 +1,4 @@
-namespace iSlideAddIn;
+namespace SlideKit;
 public static class FontManager
 {
     public static string TitleFont { get; set; } = "Microsoft YaHei";

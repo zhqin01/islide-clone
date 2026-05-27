@@ -1,5 +1,5 @@
 using System.Windows.Forms;
-namespace iSlideAddIn.Dialogs;
+namespace SlideKit.Dialogs;
 public class CompressDialog : Form
 {
     public int TargetDpi => _cmb.SelectedIndex switch { 0 => 220, 1 => 150, 2 => 96, _ => 150 };

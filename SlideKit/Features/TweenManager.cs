@@ -1,4 +1,4 @@
-namespace iSlideAddIn;
+namespace SlideKit;
 public static class TweenManager
 {
     public static string StepsText { get; set; } = "5";

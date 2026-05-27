@@ -1,4 +1,4 @@
-namespace iSlideAddIn;
+namespace SlideKit;
 public static class PasteSwapManager
 {
     public static void PasteInPlace() { var a = AddInModule.PowerPointApp; if (a?.ActivePresentation == null) return; try { a.CommandBars.ExecuteMso("PasteSourceFormatting"); } catch { } }

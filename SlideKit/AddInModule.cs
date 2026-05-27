@@ -1,6 +1,6 @@
 using System.Runtime.InteropServices;
 
-namespace iSlideAddIn;
+namespace SlideKit;
 
 // IDTExtensibility2 — IUnknown-based to avoid runtime typelib export during COM activation.
 [ComVisible(true)]
@@ -54,7 +54,7 @@ public interface IRibbonControl
 [ComVisible(true)]
 [ClassInterface(ClassInterfaceType.None)]
 [Guid("F1A2B3C4-D5E6-7890-ABCD-EF0123456789")]
-[ProgId("iSlideAddIn.Connect")]
+[ProgId("SlideKit.Connect")]
 public class AddInModule : IDTExtensibility2, IRibbonExtensibility
 {
     public static dynamic? PowerPointApp { get; private set; }
@@ -158,7 +158,7 @@ public class AddInModule : IDTExtensibility2, IRibbonExtensibility
         {
             var path = Path.Combine(
                 Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
-                "iSlideClone",
+                "SlideKit",
                 "addin.log");
             Directory.CreateDirectory(Path.GetDirectoryName(path)!);
             File.AppendAllText(path, $"{DateTime.Now:yyyy-MM-dd HH:mm:ss.fff} {message}{Environment.NewLine}");

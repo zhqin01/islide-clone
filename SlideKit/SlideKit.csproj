@@ -6,8 +6,8 @@
     <Nullable>enable</Nullable>
     <LangVersion>latest</LangVersion>
     <PlatformTarget>x64</PlatformTarget>
-    <AssemblyName>iSlideAddIn</AssemblyName>
-    <RootNamespace>iSlideAddIn</RootNamespace>
+    <AssemblyName>SlideKit</AssemblyName>
+    <RootNamespace>SlideKit</RootNamespace>
     <DefaultItemExcludes>$(DefaultItemExcludes);publish\**</DefaultItemExcludes>
   </PropertyGroup>
 

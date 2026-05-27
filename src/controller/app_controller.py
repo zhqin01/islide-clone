@@ -17,6 +17,7 @@ from src.backend.context import PresentationContext
 from src.backend.com_context import ComPresentationContext
 from src.backend.pptx_context import PptxPresentationContext
 from src.engine.base import EngineResult
+from src import bundle_dir
 
 
 class SessionMode(Enum):
@@ -188,10 +189,7 @@ class AppController(QObject):
     # ── helpers ───────────────────────────────────────────────
 
     def _load_defaults(self) -> None:
-        config_path = os.path.join(
-            os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))),
-            "resources", "config", "defaults.json"
-        )
+        config_path = os.path.join(bundle_dir(), "resources", "config", "defaults.json")
         try:
             with open(config_path, 'r', encoding='utf-8') as f:
                 self._defaults = json.load(f)

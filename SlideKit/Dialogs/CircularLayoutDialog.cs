@@ -1,5 +1,5 @@
 using System.Windows.Forms;
-namespace iSlideAddIn.Dialogs;
+namespace SlideKit.Dialogs;
 public class CircularLayoutDialog : Form
 {
     public float Radius => (float)_r.Value;
